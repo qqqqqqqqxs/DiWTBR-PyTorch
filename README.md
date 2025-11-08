@@ -12,4 +12,4 @@ We provide code for reproducing results from our paper. You can train our model 
 # Quickstart (Demo)
 You can test our bokeh rendering algorithm with your images. Place your images in ``test/input`` folder.
 Or if you want to bokeh the images in any folder, please change the folder path on ``line 35 of test.py`` to the location you want.We support png and jpg files.
-Please download our final models from [here](https://huggingface.co/Xiaoshi404/DiWTBR/tree/main)
+Please download our final models/checkpoints from [here](https://huggingface.co/Xiaoshi404/DiWTBR/tree/main).

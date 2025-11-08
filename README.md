@@ -10,5 +10,5 @@ pip install requirements.txt #You are now in */DiWTBR_main
 # Code
 We provide code for reproducing results from our paper. You can train our model from scratch, or use our weights to process your images.
 # Quickstart (Demo)
-You can test our super-resolution algorithm with your images. Place your images in ``test/input`` folder.
+You can test our bokeh rendering algorithm with your images. Place your images in ``test/input`` folder.
 Or if you want to bokeh the images in any folder, please change the folder path on ``line 35 of test.py`` to the location you want.

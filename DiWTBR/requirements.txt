@@ -1,0 +1,12 @@
+torch==2.0.1
+torchvision
+numpy
+scikit-image
+imageio
+matplotlib
+opencv-python
+tensorboard
+einops
+piq
+timm
+lpips

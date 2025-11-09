@@ -15,3 +15,8 @@ If you want to bokeh the images in any folder, please change the folder path on 
 
 Please download our final checkpoints from [here](https://huggingface.co/Xiaoshi404/DiWTBR/tree/main).When using the specified weight file, please place the weight file in the ``checkpoint`` folder 
 and set the ``parser--checkpoint`` in ``test.py``.
+# How to train DiWTBR
+We trained our model using the FPBNet dataset, and it is necessary to apply for using this dataset by emailing xxxx.
+
+Please use ``main.py`` to train the model.We have already set the training parameters for different models. And you need to set it in the ``parser--model_type``.
+

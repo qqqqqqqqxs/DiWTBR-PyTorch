@@ -14,9 +14,12 @@ import torch.nn as nn
 import argparse
 
 parser = argparse.ArgumentParser(description='DiWTBR Evaluation')
+parser.add_argument("--model_type", type=str, default='DiWTBR-S', 
+                    choices=['DiWTBR-B', 'DiWTBR-S'], 
+                    help="Model architecture")
 parser.add_argument('--checkpoint', type=str, default='./Checkpoint/S_EBB.pth', 
                     help='Path to model checkpoint file')
-parser.add_argument('--test_datadir', type=str, default='/mnt/data0/qiuxs/EBB/test/original/', 
+parser.add_argument('--test_datadir', type=str, default='./input/F16', 
                     help='Path to test data directory')
 parser.add_argument('--result_dir', type=str, default='./result/EBB-S/', 
                     help='Path to save result directory')
@@ -57,7 +60,7 @@ def evaluate(model):
     transform1 = transforms.Compose([
         transforms.ToTensor()
     ])
-    test_set = TestData(opt.test_data, transform1,  data_agu=False, is_training=False, crop1=768, crop2=1024)
+    test_set = TestData(opt.test_datadir, transform1,  data_agu=False, is_training=False, crop1=768, crop2=1024)
     test_data_loader = DataLoader(dataset=test_set, num_workers=3, batch_size=1, shuffle=False)
     result_folder = opt.result_dir
     if not os.path.exists(result_folder):
@@ -79,7 +82,12 @@ def evaluate(model):
             defocus.save('{}/{}.jpg'.format(result_folder, original_name))
 
 os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpu
-model = DiWTBR()
+if opt.model_type == 'DiWTBR-B':
+    model = DiWTBR(basic_ch=64)
+elif opt.model_type == 'DiWTBR-S':
+    model = DiWTBR(basic_ch=32)  
+else:
+    raise ValueError(f"Unsupported model type: {opt.model_type}")
 # model = nn.DataParallel(model) ##Use this line of code when there is "module" in the ckpt dict
 model = model.cuda()
 checkpoint = torch.load(opt.checkpoint)

@@ -5,7 +5,7 @@ DiWTBR: Dilated Wavelet Transformer for Efficient Megapixel Bokeh Rendering
 * Python 3.8
 * requirements.txt
 ```bash
-pip install requirements.txt #You are now in */DiWTBR_main
+pip install -r requirements.txt #You are now in */DiWTBR_main
 ```
 # Code
 We provide code for reproducing results from our paper. You can train our model from scratch, or use our weights to process your images.
